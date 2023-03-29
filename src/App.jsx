@@ -5,14 +5,17 @@ import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
 
 export const App = () => {
+  //const [変数名, 変数に値を設定する関数]
   const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
 
+  //入力した値が変化したときにリアルタイムでテキストボックスに代入する用
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
   const onClickAdd = () => {
     if (todoText === "") return;
+    //今のincompleteTodosの後ろにtodoTextが追加された。
     const newTodo = [...incompleteTodos, todoText];
     setIncompleteTodos(newTodo);
     setTodoText("");
